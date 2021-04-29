@@ -1,5 +1,6 @@
-<?php 
 
+
+<?php 
 	class produtos{
 		public function addImagem($dados){
 			$c= new conectar();
@@ -7,23 +8,17 @@
 
 			$data=date('Y-m-d');
 
-			$sql = "INSERT into imagens (id_categoria,
+			$sql="INSERT into imagens (id_categoria,
 										nome,
 										url,
 										dataUpload)
-							VALUES ('$dados[0]',
+							values ('$dados[0]',
 									'$dados[1]',
 									'$dados[2]',
 									'$data')";
-			
-			
-			/* 
-			return mysqli_query($conexao, $sql);
-			*/
+			$result=mysqli_query($conexao,$sql);
 
-			$result=mysqli_query($conexao, $sql);
-
-			return mysqli_insert_id($conexao); 
+			return mysqli_insert_id($conexao);
 		}
 		public function inserirProduto($dados){
 			$c= new conectar();
@@ -86,7 +81,7 @@
 			$c= new conectar();
 			$conexao=$c->conexao();
 
-			$sql="UPDATE produtos set id_categoria='$dados[1]',
+			$sql="UPDATE produtos set id_categoria='$dados[1]', 
 										nome='$dados[2]',
 										descricao='$dados[3]',
 										quantidade='$dados[4]',
